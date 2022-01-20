@@ -5475,11 +5475,22 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+/* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
+window.Echo.channel('notifications').listen('UserSessionChanged', function (event) {
+  var notificationElement = document.getElementById('notification');
+  console.log(1);
+  notificationElement.innerText = event.message;
+  notificationElement.classList.remove('invisible');
+  notificationElement.classList.remove('alert-success');
+  notificationElement.classList.remove('alert-danger');
+  notificationElement.classList.add('alert-' + event.type);
+});
 
 /***/ }),
 
