@@ -5482,7 +5482,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 window.Alpine = alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"];
 alpinejs__WEBPACK_IMPORTED_MODULE_0__["default"].start();
-window.Echo.channel('notifications').listen('UserSessionChanged', function (event) {
+window.Echo["private"]('notifications').listen('UserSessionChanged', function (event) {
   var notificationElement = document.getElementById('notification');
   console.log(1);
   notificationElement.innerText = event.message;

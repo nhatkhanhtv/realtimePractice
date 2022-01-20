@@ -8,7 +8,7 @@ window.Alpine = Alpine;
 Alpine.start();
 
 
-window.Echo.channel('notifications')
+window.Echo.private('notifications')
     .listen('UserSessionChanged', (event) => {
         let notificationElement = document.getElementById('notification');
         console.log(1);
