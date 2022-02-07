@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,11 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('post',[PostController::class,'index']);
+Route::get('post/create',[PostController::class,'create']);
+Route::get('post/{post}/edit',[PostController::class,'edit']);
+Route::post('post',[PostController::class,'store'])->name('post.store');
+
+Route::put('post/{post}/update',[PostController::class,'update'])->name('post.update');
+Route::delete('post/{post}/delete',[PostController::class,'destroy'])->name('post.delete');
